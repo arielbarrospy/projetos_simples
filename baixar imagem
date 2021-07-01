@@ -1,0 +1,49 @@
+import requests
+import random
+from time import sleep
+
+def baixar(url):
+    nome = random.randint(11111, 99999)
+    resposta = requests.get(url)
+    if resposta.status_code == 200:
+        print('.')
+        sleep(0.1)
+        print('....')
+        sleep(0.1)
+        print('.......')
+        sleep(0.1)
+        print('..........')
+        sleep(0.1)
+        print('..............')
+        sleep(0.1)
+        print('..................')
+        sleep(0.1)
+        print('......................')
+        sleep(0.1)
+        print('..........................')
+        sleep(0.1)
+        print('..............................')
+        sleep(0.1)
+        print('...................................')
+        sleep(1)
+        print('')
+        print('salvando.....')
+        sleep(1.5)
+        print('')
+        print('imagem baixada e salva no diretorio atual')
+        f = open('imagem%s.png' % (nome),'wb')
+        f.write(resposta.content)
+        print(nome)
+        sleep(1.5)
+        f.close()
+    else:
+        print('nao foi possivel conectar ao link desejado, verigfique sua internet e tente novamente mais tarde ')
+def main():
+    print('Para baixar, copie e cole o link da imagem a seguir: ')
+    print('')
+    url = input('cole o link da imagem aqui: ')
+    urls = url.strip()
+    teste = baixar(urls)
+if __name__=='__main__':
+    main()
+
